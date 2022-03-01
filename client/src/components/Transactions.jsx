@@ -6,7 +6,7 @@ import dummyData from '../utils/dummyData.js';
 import useFetch from "../hooks/useFetch";
 
 const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, amount, url }) => {
-    const GifUrl = useFetch({keyword});
+    const GifUrl = useFetch({ keyword });
     return (
         <div className="bg-[#12101d] m-4 flex flex-1 
      2xl:min-w-[450p]
@@ -19,15 +19,18 @@ const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, 
             <div className="flex flex-col items-center w-full mt-3">
                 <div className=" w-full mb-6 p-2">
 
-                        <div className="hover:bg-[#161424] rounded-full "> {/* div created for onhover effect */}
-                    <a href={`https://ropsten.etherscan.io/address/${addressFrom}`} target="_blank" rel="noopener noreferrer">
+                    <div className="hover:bg-[#23155a] rounded-md "> {/* div created for onhover effect */}
+                        <a href={`https://ropsten.etherscan.io/address/${addressFrom}`} target="_blank" rel="noopener noreferrer">
 
-                        <p className="text-white text-base px-10"> Sender : {shortenAddress(addressFrom)}</p>
-                    </a>
-                    <a href={`https://ropsten.etherscan.io/address/${addressTo}`} target="_blank" rel="noopener noreferrer">
-                        <p className="text-white text-base px-10"> Reciever : {shortenAddress(addressTo)}</p>
-                    </a>
-                        </div>
+                            <p className="text-white text-base px-10"> Sender: {shortenAddress(addressFrom)}</p>
+                        </a>
+                    </div>
+
+                    <div className="hover:bg-[#23155a] rounded-md "> {/* div created for onhover effect */}
+                        <a href={`https://ropsten.etherscan.io/address/${addressTo}`} target="_blank" rel="noopener noreferrer">
+                            <p className="text-white text-base px-10"> Reciever: {shortenAddress(addressTo)}</p>
+                        </a>
+                    </div>
                     <p className="text-white text-base px-10">Amount : {amount} ETH</p>
                     {
                         message && (
@@ -39,11 +42,11 @@ const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, 
                     }
 
                 </div>
-                    <img src={GifUrl || url} alt="Gif" className='w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover'/>
+                <img src={GifUrl || url} alt="Gif" className='w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover' />
 
-                    <div className="bg-black p-3  px-5 w-max rounded-3xl -mt-5 shadow-2xl">
-                            <p className="text-[#37828b] font-bold">{timestamp}</p>
-                    </div>
+                <div className="bg-black p-3  px-5 w-max rounded-3xl -mt-5 shadow-2xl">
+                    <p className="text-[#37828b] font-bold">{timestamp}</p>
+                </div>
 
             </div>
 
